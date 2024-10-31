@@ -17,7 +17,7 @@ $page_count = ceil($data_count/$limit);
 
 if (isset($_GET['all_pro_p_id']))
 {
-	$page_no = $_GET['all_pro_p_id']
+	$page_no = $_GET['all_pro_p_id'];
 }
 else
 {
