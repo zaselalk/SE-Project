@@ -37,7 +37,12 @@ CLASS DIAGRAM
 
 # DFD DIAGRAMS
 
-DFD drawio](https://github.com/user-attachments/assets/21be16b9-5b85-4731-9f76-abcb742558f6)
+DFD LEVEL O
+
+![SE_DFD drawio](https://github.com/user-attachments/assets/fa0c3971-5a2b-44e3-9933-d15eb96e758b)
+
+DFD LEVEL 1
+
 ![SE_![SE_DFD1 drawio](https://github.com/user-attachments/assets/cde06ef4-8a54-4bb8-a4b0-9b1556ce1b77)
 
 # ARCHITECTURAL DESIGN
