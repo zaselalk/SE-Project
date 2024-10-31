@@ -14,10 +14,21 @@ Besides, the system provides useful business insights through customizable repor
 
 # UML DIAGRAMS
 
+USE CASE DIAGRAM
+
 ![SE_Usecase drawio](https://github.com/user-attachments/assets/bda742b5-180e-44e9-838b-a1e48b373a98)
+
+SEQUENCE DIAGRAM
+
 ![SE_Sequence drawio](https://github.com/user-attachments/assets/9592fb01-6636-4511-acfe-07c831d3e776)
-[SE_Activity drawio](https://github.com/user-attachments/assets/daf8285f-cee5-4bcb-90e9-2473e0eedb31)
+
+ACTIVITY DIAGRAM
+
+![SE_Activity drawio](https://github.com/user-attachments/assets/daf8285f-cee5-4bcb-90e9-2473e0eedb31)
 c9265)
+
+CLASS DIAGRAM
+
 ![SE_Class diagram drawio (1)](https://github.com/user-attachments/assets/44e0d65e-44d1-4bc2-86ae-7da62e703230)
 
 # ER DIAGRAM 
