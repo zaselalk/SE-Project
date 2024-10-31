@@ -10,4 +10,4 @@ It helps administrators in managing various operations of a store such as custom
 
 Besides, the system provides useful business insights through customizable reports that assist in strategic decisions and operational oversight of the business. 
 
-# "Soft Clothes" is based on a strong tech stack including PHP, HTML, CSS, and JavaScript that is used for both the frontend and backend, while MySQL is applied for database management. 
+"Soft Clothes" is based on a strong tech stack including PHP, HTML, CSS, and JavaScript that is used for both the frontend and backend, while MySQL is applied for database management. 
