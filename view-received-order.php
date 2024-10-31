@@ -1,10 +1,10 @@
 <?php include_once 'header.php';
 
-$sql_select_data = "select * from `product`";
+$sql_select_data = "select * from `order` where `status`='Pending'";
 $data_data = mysqli_query($conn,$sql_select_data);
 $data_count = mysqli_num_rows($data_data);
 
-$limit = 8;
+$limit = 5;
 $page_count = ceil($data_count/$limit);
 
 if (isset($_GET['p_id']))
@@ -18,11 +18,8 @@ else
 
 $start = ($page_no-1)*$limit;
 
-$sql_select = "select * from `product` limit $start,$limit";
+$sql_select = "select * from `order` where `status`='Pending' limit $start,$limit";
 $data = mysqli_query($conn,$sql_select);
-
-$previous = $page_no-1;
-$next = $page_no+1;
 
 ?>
 
@@ -57,16 +54,16 @@ $next = $page_no+1;
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover display_product_admin_page_change">
+                <table id="example2" class="table table-bordered table-hover display_order_admin_page_change">
                   <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>Product ID</th>
+                    <th>Order Date/Time</th>
                     <th>Name of Product</th>
-                    <th>Price of Product</th>
-                    <th>Category of Product</th>
-                    <th>Type of Product</th>
-                    <th>Stock</th>
+                    <th>Number of Items</th>
                     <th>Image 1 (Main)</th>
+                    <th>Delivery Address</th>
+                    <th>City & Pincode</th>
                     <th>View More</th>
                   </tr>
                   </thead>
@@ -74,22 +71,22 @@ $next = $page_no+1;
                   <?php while ($row = mysqli_fetch_assoc($data)) { ?>
 
                    <tr>
-                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['product_id']; ?></td>
+                    <td><?php echo $row['date_time']; ?></td>
                     <td><?php echo $row['name']; ?></td>
-                    <td><?php echo $row['price']; ?></td>
-                    <td><?php echo $row['category']; ?></td>
-                    <td><?php echo $row['type']; ?></td>
-                    <td><?php echo $row['stock']; ?></td>
+                    <td><?php echo $row['num_product']; ?></td>
                     <td align="center">
-                         <div style="width: 200px; height: 170px;"><img src="image/<?php echo $row['image1']; ?>" style="height: 100%; width: 100%; object-fit: cover; object-position: top;"></td></div>
+                         <div style="width: 200px; height: 170px;"><img src="image/<?php echo $row['image']; ?>" style="height: 100%; width: 100%; object-fit: cover; object-position: top;"></td></div>
                     </td>
-                    <td><a href="view-more-product.php?v_id=<?php echo $row['id']; ?>">View More</a></td>
+                    <td><?php echo $row['address']; ?></td>
+                    <td><?php echo $row['city']; ?>, <?php echo $row['pincode']; ?></td>                    
+                    <td><a href="view-more-product-order.php?v_id=<?php echo $row['id']; ?>">View More</a></td>
                   </tr>
 
                   <?php } ?>
 
                    <tr>
-                    <td colspan="7" align="center">
+                    <td colspan="8" align="center">
                   <?php for ($i=1; $i<=$page_count; $i++) { ?>
                     <a href="javascript:void(0)" class="btn btn-primary-page 
                     <?php if(isset($_GET['p_id']))
@@ -109,7 +106,7 @@ $next = $page_no+1;
                         {
                           echo "btn-primary-page-active";
                         }
-                      } ?> product_admin_page_change " attr_id=<?php echo $i; ?> >
+                      } ?> order_admin_page_change " attr_id=<?php echo $i; ?> >
                     <?php echo $i; ?>
                     </a>
                   <?php } ?>   

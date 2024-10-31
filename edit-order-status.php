@@ -1,10 +1,20 @@
 <?php include_once 'header.php';
 
-$view_id = $_GET['v_id'];
+$view_id = $_GET['e_id'];
 
 $sql_select = "select * from `order` where `id`='$view_id'";
 $data = mysqli_query($conn,$sql_select);
 $row = mysqli_fetch_assoc($data);
+
+if (isset($_POST['edited_order']))
+{
+    $status = $_POST['status'];
+
+    $sql_update = "update `order` set `status`='$status' where `id`='$view_id'";
+    mysqli_query($conn,$sql_update);
+
+    header('location:view-more-product-order.php?v_id='.$row['id']);
+}
 
 ?>
 
@@ -41,11 +51,19 @@ $row = mysqli_fetch_assoc($data);
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+          <form method="post" enctype="multipart/form-data">
+            <div class="card-body">
               <table id="example2" class="table table-bordered">
                   
                   <tr>
                     <th>Current Delivery Status</th>
-                    <td><?php echo $row['status']; ?></td>
+                    <td>
+                      <select class="form-control" name="status" required>
+                        <option <?php if($row['status']=="Pending"){ echo "selected"; } ?>>Pending</option>
+                        <option <?php if($row['status']=="Delivered"){ echo "selected"; } ?>>Delivered</option>
+                        <option <?php if($row['status']=="Cancelled-By-Supplier"){ echo "selected"; } ?>>Cancelled-By-Supplier</option>
+                      </select>
+                    </td>
                   </tr>
                   <tr>
                     <th>Product ID</th>
@@ -110,16 +128,12 @@ $row = mysqli_fetch_assoc($data);
                     </td>
                   </tr>
 
-                  </table>
+              </table>  
 
-                  <a href="edit-order-status.php?e_id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit Order Status</a>
-                  <br>
-                  <a href="view-received-order.php" class="btn btn-primary">Back to View Order List</a>
- 
+                  <button type="submit" class="btn btn-primary" name="edited_order">Change Current Delivery Status</button>
+
             </div>
-            <!-- /.card -->
-                </form>
-              </div>
+          </form>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
